@@ -1,6 +1,5 @@
 package com.korolkov.shop.config;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,20 +19,23 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        /**
+         * Admin login kormaxim93@mail.ru
+         * Admin password 07av2902$
+         */
         http
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**" , "/api/v1/test/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
+                .requestMatchers("/admin").hasAnyRole("ADMIN", "MODERATOR")
+                .requestMatchers("/**")
+                .anonymous()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter , UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
