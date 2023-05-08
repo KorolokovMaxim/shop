@@ -19,10 +19,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        /**
-         * Admin login kormaxim93@mail.ru
-         * Admin password 07av2902$
-         */
         http
                 .csrf()
                 .disable()
