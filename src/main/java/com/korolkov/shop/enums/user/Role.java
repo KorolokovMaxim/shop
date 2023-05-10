@@ -10,10 +10,10 @@ public enum Role {
     USER("USER"),
     MODERATOR("MODERATOR"),
     ADMIN("ADMIN");
-    String rusName;
+    String name;
 
     Role(String rusName) {
-        this.rusName = rusName;
+        this.name = rusName;
     }
 
 }

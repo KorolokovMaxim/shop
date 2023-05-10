@@ -17,7 +17,6 @@ import org.hibernate.annotations.Where;
         @AttributeOverride(name = "deletedBy", column = @Column(name = "product_category_deleted_by")),
         @AttributeOverride(name = "deletedAt", column = @Column(name = "product_category_deleted_at"))
 })
-@SequenceGenerator(name = "SEQ_ID", sequenceName = "product_category_product_category_id_seq", schema = "shop")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
 @Getter

@@ -24,7 +24,7 @@ import java.util.List;
         @AttributeOverride(name = "deletedBy", column = @Column(name = "user_deleted_by")),
         @AttributeOverride(name = "deletedAt", column = @Column(name = "user_deleted_at"))
 })
-@SequenceGenerator(name = "SEQ_ID", sequenceName = "user_user_id_seq", schema = "shop")
+@SequenceGenerator(name = "UUID", schema = "shop")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
 @Getter
@@ -51,7 +51,7 @@ public class User extends AuditEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(getRole().getName()));
     }
 
     @Override
