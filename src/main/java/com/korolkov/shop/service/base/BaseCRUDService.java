@@ -1,14 +1,15 @@
 package com.korolkov.shop.service.base;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface BaseCRUDService<T> {
 
     void  create(T request);
 
-    void delete(Long id);
+    void delete(UUID id);
 
     List<T> getAll();
 
-    T getOne(Long id);
+    T getOne(UUID id);
 }

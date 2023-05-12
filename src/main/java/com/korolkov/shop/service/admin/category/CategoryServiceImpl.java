@@ -1,4 +1,4 @@
-package com.korolkov.shop.service.category;
+package com.korolkov.shop.service.admin.category;
 
 import com.korolkov.shop.dto.category.CategoryDTO;
 import com.korolkov.shop.entity.category.Category;
@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
+
+
 @Service
 @RequiredArgsConstructor
 @Getter
@@ -41,7 +44,7 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void delete(UUID id) {
         repository.deleteSoft(id , SecurityHelper.getLoggedUser(), LocalDateTime.now());
     }
 
@@ -53,7 +56,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public CategoryDTO getOne(Long id) {
+    public CategoryDTO getOne(UUID id) {
         Category category = repository.findById(id).orElseThrow(
                 () -> new RuntimeException("Категория не найдена"));
         return new CategoryDTO(category);

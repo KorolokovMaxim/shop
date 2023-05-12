@@ -1,14 +1,15 @@
 package com.korolkov.shop.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface BaseCRUDController<T> {
      void  create(T request);
 
-     void delete(Long id);
+     void delete(UUID id);
 
      List<T> getAll();
 
-     T getOne(Long id);
+     T getOne(UUID id);
 
 }

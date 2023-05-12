@@ -7,9 +7,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Getter
 public enum Role {
-    USER("USER"),
-    MODERATOR("MODERATOR"),
-    ADMIN("ADMIN");
+    ROLE_USER("ROLE_USER"),
+    ROLE_MODERATOR("ROLE_MODERATOR"),
+    ROLE_ADMIN("ROLE_ADMIN");
     String name;
 
     Role(String rusName) {

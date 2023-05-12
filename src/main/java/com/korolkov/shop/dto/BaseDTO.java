@@ -3,6 +3,8 @@ package com.korolkov.shop.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.UUID;
+
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
 @Getter
@@ -11,5 +13,5 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class BaseDTO {
-    Long id;
+    UUID id;
 }

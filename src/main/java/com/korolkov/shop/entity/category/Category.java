@@ -1,10 +1,13 @@
 package com.korolkov.shop.entity.category;
 
+import com.korolkov.shop.entity.product.Product;
 import com.korolkov.shop.entity.base.AuditEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Where;
+
+import java.util.List;
 
 @Entity(name = "category")
 @Table(name = "product_category", schema = "shop")
@@ -38,4 +41,6 @@ public class Category extends AuditEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_category_parent_id")
     Category parent;
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    List<Product> product;
 }
